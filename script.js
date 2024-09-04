@@ -2,6 +2,10 @@
 const enter = document.querySelector("enter");
 const sketchContainer = document.querySelector(".sketch-container")
 const promptMessage = document.querySelector(".prompt-message");
+const gridBoxes = document.querySelectorAll(".grid-box");
+const colorSelector = document.getElementById("color-chosen");
+let colors;
+let defaultColor = "#000000";
 
 function getInfo() {
     let userNumber = document.querySelector(".user-info").value;
@@ -46,16 +50,18 @@ function initiateSketch() {
         createGrid(userInput);
         paintSquares();
         promptMessage.textContent = "";
+        document.querySelector(".user-info").value = "";
     }
 }
 
 function paintSquares() {
     const gridBoxes = document.querySelectorAll(".grid-box");
 
-    gridBoxes.forEach(box => box.addEventListener('mouseover', () => {
-        box.style.backgroundColor = "black";
-    }))
+    gridBoxes.forEach(box => {
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = "black";
+        })
+    })
 }
-
 
 initiateSketch();
