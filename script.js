@@ -3,6 +3,7 @@ const enter = document.querySelector("enter");
 const sketchContainer = document.querySelector(".sketch-container")
 const promptMessage = document.querySelector(".prompt-message");
 const gridBoxes = document.querySelectorAll(".grid-box");
+const color = document.querySelector("#color-chosen");
 
 function getInfo() {
     let userNumber = document.querySelector(".user-info").value;
@@ -19,7 +20,7 @@ function createGrid(gridSize) {
         for (let i = 0; i < gridSize; i++) {
             let gridBox = document.createElement("div");
             gridBox.classList = "grid-box";
-            gridBox.id = i
+            gridBox.id = i;
             row.appendChild(gridBox);
         }
     }
@@ -33,7 +34,6 @@ function clearGrid() {
 
 function eraseSketch() {
     const gridBoxes = document.querySelectorAll(".grid-box");
-
     gridBoxes.forEach(box => {box.style.backgroundColor = "white"});
 }
 
@@ -54,14 +54,9 @@ function initiateSketch() {
 function paintSquares() {
     const gridBoxes = document.querySelectorAll(".grid-box");
 
-    document.getElementById("color-chosen").onchange = e => {
-        e.target.value;
-    }
-
     gridBoxes.forEach(box => {
         box.addEventListener("mouseover", () => {
-            let color = document.querySelector("#color-chosen").value;
-            box.style.backgroundColor = color;
+            box.style.backgroundColor = color.value;
         })
     })
 }
