@@ -3,9 +3,6 @@ const enter = document.querySelector("enter");
 const sketchContainer = document.querySelector(".sketch-container")
 const promptMessage = document.querySelector(".prompt-message");
 const gridBoxes = document.querySelectorAll(".grid-box");
-const colorSelector = document.getElementById("color-chosen");
-let colors;
-let defaultColor = "#000000";
 
 function getInfo() {
     let userNumber = document.querySelector(".user-info").value;
