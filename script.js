@@ -57,9 +57,14 @@ function initiateSketch() {
 function paintSquares() {
     const gridBoxes = document.querySelectorAll(".grid-box");
 
+    document.getElementById("color-chosen").onchange = e => {
+        e.target.value;
+    }
+
     gridBoxes.forEach(box => {
         box.addEventListener("mouseover", () => {
-            box.style.backgroundColor = "black";
+            let color = document.querySelector("#color-chosen").value;
+            box.style.backgroundColor = color;
         })
     })
 }
