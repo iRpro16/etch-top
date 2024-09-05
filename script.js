@@ -4,11 +4,8 @@ const sketchContainer = document.querySelector(".sketch-container")
 const promptMessage = document.querySelector(".prompt-message");
 const gridBoxes = document.querySelectorAll(".grid-box");
 const color = document.querySelector("#color-chosen");
+let userNumber = document.querySelector(".user-info");
 
-function getInfo() {
-    let userNumber = document.querySelector(".user-info").value;
-    return userNumber;
-}
 
 function createGrid(gridSize) {
     for (let i = 0; i < gridSize; i++) {
@@ -39,7 +36,7 @@ function eraseSketch() {
 
 function initiateSketch() {
     clearGrid();
-    let userInput = getInfo();
+    let userInput = userNumber.value;
 
     if (userInput < 16 || userInput > 100) {
         promptMessage.textContent = "Please enter a value between 16 and 100";
@@ -57,6 +54,18 @@ function paintSquares() {
     gridBoxes.forEach(box => {
         box.addEventListener("mouseover", () => {
             box.style.backgroundColor = color.value;
+        })
+    })
+}
+
+function randomColors() {
+    const gridBoxes = document.querySelectorAll(".grid-box");
+    promptMessage.textContent ="click 'Enter' to exit RGB Mode.";
+
+    gridBoxes.forEach(box => {
+        box.addEventListener("mouseover", () => {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            box.style.backgroundColor = "#" + randomColor;
         })
     })
 }
