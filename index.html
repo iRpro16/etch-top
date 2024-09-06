@@ -13,12 +13,16 @@
     </div>
     <div class="sketch-section">
         <div class="prompt-message"></div>
+        <div class="above-section">
+            <input class="user-info" type="text" placeholder="Please type in a number...">
+            <div class="color-selection">
+                <label for="color">Select a color:</label>
+            <input type="color" id="color-chosen">
+            </div>
+        </div>
         <div class="user-input">
             <button class="rgb-mode" onclick="randomColors()">RGB Mode</button>
-            <button class="opacity-mode">Opacity Mode</button>
-            <input class="user-info" type="text" placeholder="Please type in a number...">
-            <label for="color">Select a color:</label>
-            <input type="color" id="color-chosen">
+            <button class="opacity-mode" onclick="opaqueSquares()">Opacity Mode</button>
             <button class="enter" onclick="initiateSketch()">Enter</button>
             <button class="erase" onclick="eraseSketch()">Erase</button>
         </div>

@@ -31,7 +31,11 @@ function clearGrid() {
 
 function eraseSketch() {
     const gridBoxes = document.querySelectorAll(".grid-box");
-    gridBoxes.forEach(box => {box.style.backgroundColor = "white"});
+    promptMessage.textContent = "";
+    gridBoxes.forEach(box => {
+        box.style.backgroundColor = "white";
+        box.style.opacity = 1.0;
+    });
 }
 
 function initiateSketch() {
@@ -66,6 +70,20 @@ function randomColors() {
         box.addEventListener("mouseover", () => {
             const randomColor = Math.floor(Math.random()*16777215).toString(16);
             box.style.backgroundColor = "#" + randomColor;
+        })
+    })
+}
+
+function opaqueSquares() {
+    const gridBoxes = document.querySelectorAll(".grid-box");
+    promptMessage.textContent ="click 'Enter' to exit Opacity Mode.";
+
+    gridBoxes.forEach(box => {
+        box.addEventListener("mouseover", () => {
+            box.style.backgroundColor = color.value;
+            if (box.style.opacity <= 0.9) {
+                box.style.opacity = + box.style.opacity + 0.1;
+            }
         })
     })
 }
